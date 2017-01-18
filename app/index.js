@@ -10,10 +10,10 @@ export default class app extends Component {
     let defaultComponent = FirstPageComponent
     var {height, width} = Dimensions.get('window')
     return (
-      <View style={{flex: 1, backgroundColor: 'rgba(0,0,0,0.5)'}}>
-        <Header></Header>
-        <Text style={{backgroundColor: 'red'}}>231</Text>
-        <Navigator style={{marginTop: 50}}
+      <View style={styles.page}>
+        <Header title="首页" showBackBtn={false}></Header>
+        {/* <Text style={{backgroundColor: 'red'}}>231</Text> */}
+        <Navigator
           initialRoute={{ name: defaultName, component: defaultComponent }}
           configureScene={(route) => {
             // 更多动画可参考node_modules/react-native/Libraries/CustomComponents/Navigator/NavigatorSceneConfigs.js
@@ -27,3 +27,11 @@ export default class app extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  page: {
+    flex: 1,
+    paddingTop: 60,
+    backgroundColor: 'rgba(0,0,0,0.5)'
+  }
+})
