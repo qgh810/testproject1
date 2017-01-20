@@ -13,7 +13,7 @@ import {
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default class app extends Component {
+export default class NavigationBar extends Component {
   constructor(props) {
     super(props)
     // 初始化默认状态
@@ -21,8 +21,8 @@ export default class app extends Component {
       showBackBtn: true,
       showMenuBtn: true,
       backgroundColor: 'rgba(255,255,255,0.9)',
-      title: '标题123',
-      backText: ' ',
+      title: '标题',
+      backText: '返回',
       titleColor: '#000',
       backTextColor: 'blue'
     }
@@ -93,15 +93,15 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end'
   },
   headerBack: {
+    flex: 1,
     paddingLeft: 10,
-    width: 80,
     height: 40,
     overflow: 'hidden',
     flexDirection: 'row',
   },
   headerMenu: {
-    paddingRight: 20,
-    width: 80,
+    flex: 1,
+    paddingRight: 10,
     height: 40,
     overflow: 'hidden',
   },
@@ -117,11 +117,11 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   headerTitle: {
-    maxWidth: 150,
+    flex: 5,
     height: 40,
     lineHeight: 40,
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 15,
     overflow: 'hidden',
   }
 })

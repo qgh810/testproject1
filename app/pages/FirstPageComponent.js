@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import SecondPageComponent from './SecondPageComponent';
+import routesConfig from '../route-config';
 
 export default class FirstPageComponent extends React.Component {
     constructor(props) {
@@ -19,16 +20,30 @@ export default class FirstPageComponent extends React.Component {
         //<Component {...route.params} navigator={navigator} />
         //这里传递了navigator作为props
         if(navigator) {
-            navigator.push({
-                name: 'SecondPageComponent',
-                component: SecondPageComponent,
-            })
+            navigator.push(routesConfig.routes.SecondPageComponent)
         }
     }
     render() {
         return (
             <View style={{backgroundColor: 'green'}}>
                 <TouchableOpacity onPress={this._pressButton.bind(this)}>
+                  <Text>点我跳转</Text>
+                  <Text>点我跳转</Text>
+                  <Text>点我跳转</Text>
+                  <Text>点我跳转</Text>
+                  <Text>点我跳转</Text>
+                  <Text>点我跳转</Text>
+                  <Text>点我跳转</Text>
+                  <Text>点我跳转</Text>
+                  <Text>点我跳转</Text>
+                  <Text>点我跳转</Text>
+                  <Text>点我跳转</Text>
+                  <Text>点我跳转</Text>
+                  <Text>点我跳转</Text>
+                  <Text>点我跳转</Text>
+                  <Text>点我跳转</Text>
+                  <Text>点我跳转</Text>
+                  <Text>点我跳转</Text>
                     <Text>点我跳转</Text>
                 </TouchableOpacity>
             </View>
