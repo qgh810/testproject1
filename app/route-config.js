@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 import { Navigator } from 'react-native';
 
-import FirstPageComponent from './pages/FirstPageComponent'
-import SecondPageComponent from './pages/SecondPageComponent'
-
+import Wechat from './pages/Wechat'
+import Contacts from './pages/Contacts'
+import Discover from './pages/Discover'
+import Me from './pages/Me'
 
 const routes = {
-  FirstPageComponent: {
-    title: 'FirstPageComponent',
-    component: FirstPageComponent,
-    configureScene: null,
+  Wechat: {
+    title: '微信',
+    component: Wechat,
   },
-  SecondPageComponent: {
-    title: 'SecondPageComponent',
-    component: SecondPageComponent,
+  Contacts: {
+    title: '通讯录',
+    component: Contacts,
+  },
+  Discover: {
+    title: '发现',
+    component: Discover,
+  },
+  Me: {
+    title: '我',
+    component: Me,
   },
 }
 
@@ -23,10 +31,6 @@ const defaultComponent = routes[Object.keys(routes)[0]]
 const config = {
   routes,
   defaultComponent,
-  configureScene (route) {
-    // 更多动画可参考 node_modules/react-native/Libraries/CustomComponents/Navigator/NavigatorSceneConfigs.js
-    return route.configureScene || Navigator.SceneConfigs.FloatFromRight
-  }
 }
 
 export default config

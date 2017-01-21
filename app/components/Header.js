@@ -13,17 +13,17 @@ import {
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default class NavigationBar extends Component {
+export default class header extends Component {
   constructor(props) {
     super(props)
     // 初始化默认状态
     this.state = {
       showBackBtn: true,
-      showMenuBtn: true,
-      backgroundColor: 'rgba(255,255,255,0.9)',
+      showRightBtn: true,
+      backgroundColor: '#333238',
       title: '标题',
       backText: '返回',
-      titleColor: '#000',
+      titleColor: '#fff',
       backTextColor: 'blue'
     }
 
@@ -70,11 +70,19 @@ export default class NavigationBar extends Component {
           })()
         }
         <Text style={[styles.headerTitle, {color: this.state.titleColor}]}>{this.state.title}</Text>
-        <TouchableOpacity style={styles.headerMenu} onPress={this.onMenuPress}>
-          <Text style={styles.menuText}>
-            <Icon name="navicon" style={styles.menuText}/>
-          </Text>
-        </TouchableOpacity>
+        {
+          (() => {
+            if (this.state.showRightBtn) {
+              return <TouchableOpacity style={styles.headerMenu} onPress={this.onMenuPress}>
+                <Text style={styles.menuText}>
+                  <Icon name="navicon" style={styles.menuText}/>
+                </Text>
+              </TouchableOpacity>
+            } else {
+              return <TouchableOpacity style={styles.headerMenu} />
+            }
+          })()
+        }
       </View>
     );
   }
@@ -82,9 +90,6 @@ export default class NavigationBar extends Component {
 
 const styles = StyleSheet.create({
   headerBox: {
-    position: 'absolute',
-    top: 0,
-    zIndex: 10,
     height: 60,
     paddingTop: 20,
     backgroundColor: 'rgba(255,255,255,0.9)',
@@ -121,7 +126,7 @@ const styles = StyleSheet.create({
     height: 40,
     lineHeight: 40,
     textAlign: 'center',
-    fontSize: 15,
+    fontSize: 18,
     overflow: 'hidden',
   }
 })

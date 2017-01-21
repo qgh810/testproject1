@@ -6,47 +6,63 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 var {height, width} = Dimensions.get('window')
 
 export default class NavigationBarBottom extends Component {
+  // 定义默认的props
+  static defaultProps = {
+    navs: [
+      {
+        title: '微信',
+        icon: 'comments',
+        name: 'Wechat',
+      },
+      {
+        title: '通讯录',
+        icon: 'vcard-o',
+        name: 'Contacts',
+      },
+      {
+        title: '发现',
+        icon: 'eye',
+        name: 'Discover',
+      },
+      {
+        title: '我',
+        icon: 'user-o',
+        name: 'Me',
+      },
+    ],
+    selectedNav: {
+      title: '微信',
+      icon: 'comments',
+      name: 'wechat',
+    },
+  }
+
   constructor (props) {
     super(props)
     this.state = {
-      navs: [
-        {
-          title: '微信',
-          icon: 'comments', //comments
-        },
-        {
-          title: '通讯录',
-          icon: 'vcard-o',
-        },
-        {
-          title: '发现',
-          icon: 'eye',
-        },
-        {
-          title: '我',
-          icon: 'user-o',
-        },
-      ],
-      selectedNav: {
-        title: '微信',
-        icon: 'comments', //comments
-      },
+      navs: this.props.navs,
+      selectedNav: this.props.selectedNav,
     }
   }
 
+  // 计算当前nav是否被选中
   computedSelectedNav = (nav) => {
     return (this.state.selectedNav.title === nav.title)
   }
 
+  // 计算当前nav图标样式
   computedIconStyle = (nav) => {
     return this.computedSelectedNav(nav) ? [styles.icon, styles.selectedColor] : styles.icon
   }
 
+  // 计算当前nav文案样式
   computedTitleStyle = (nav) => {
     return this.computedSelectedNav(nav) ? [styles.title, styles.selectedColor] : styles.title
   }
 
+  // 监听当前nav点击事件
   onNavSelected = (nav) => {
+    this.props.onNavSelected && this.props.onNavSelected(nav)
     this.setState({selectedNav: nav})
   }
 
@@ -67,6 +83,12 @@ export default class NavigationBarBottom extends Component {
     );
   }
 }
+//
+// <Navigator
+//   initialRoute={routesConfig.defaultComponent}
+//   configureScene={routesConfig.configureScene}
+//   renderScene={(route,navigator) => <route.component {...route} navigator={navigator} />}
+// />
 
 const styles = StyleSheet.create({
   container: {
