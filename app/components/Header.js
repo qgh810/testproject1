@@ -24,7 +24,9 @@ export default class header extends Component {
       title: '标题',
       backText: '返回',
       titleColor: '#fff',
-      backTextColor: 'blue'
+      backTextColor: 'blue',
+      icon: 'navicon',
+      iconColor: '#fff'
     }
 
     // 读取props的属性
@@ -75,7 +77,7 @@ export default class header extends Component {
             if (this.state.showRightBtn) {
               return <TouchableOpacity style={styles.headerMenu} onPress={this.onMenuPress}>
                 <Text style={styles.menuText}>
-                  <Icon name="navicon" style={styles.menuText}/>
+                  <Icon name={this.state.icon} style={[styles.menuText, {color: this.state.iconColor}]}/>
                 </Text>
               </TouchableOpacity>
             } else {
@@ -117,7 +119,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   menuText: {
-    fontSize: 20,
+    fontSize: 23,
     lineHeight: 40,
     textAlign: 'right',
   },
@@ -128,5 +130,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 18,
     overflow: 'hidden',
+    fontWeight: 'bold',
   }
 })

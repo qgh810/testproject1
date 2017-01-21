@@ -19,7 +19,11 @@ export default class Wechat extends Component {
               <Header
                 showBackBtn={false}
                 title={'微信'}
-                showRightBtn={false} />
+                icon="plus"/>
+                <Text>微信</Text>
+                <Text>微信</Text>
+                <Text>微信</Text>
+                <Text>微信</Text>
                 <Text>微信</Text>
             </View>
         );
