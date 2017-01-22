@@ -20,7 +20,11 @@ export default class Constacts extends Component {
             showBackBtn={false}
             title={'联系人'}
             showRightBtn={false} />
-          <Text>微信</Text>
+            <Text>联系人</Text>
+            <Text>联系人</Text>
+            <Text>联系人</Text>
+            <Text>联系人</Text>
+            <Text>联系人</Text>
         </View>
       )
     }

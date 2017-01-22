@@ -13,6 +13,9 @@ export default class Me extends Component {
         super(props);
         this.state = {};
     }
+    onRightButton () {
+      console.log('我')
+    }
     render() {
         return (
             <View style={{backgroundColor: 'red'}}>
@@ -20,7 +23,15 @@ export default class Me extends Component {
                 showBackBtn={false}
                 title={'我'}
                 showRightBtn={false} />
-              <Text>我</Text>
+                <Text>我</Text>
+                <Text>我</Text>
+                <Text>我</Text>
+                <Text>我</Text>
+                <Text>我</Text>
+                <Text>我</Text>
+                <Text>我</Text>
+                <Text>我</Text>
+                <Text>我</Text>
             </View>
         );
     }

@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   container: {
     position: 'absolute',
     bottom: 0,
-    height: 60,
+    height: 50,
     width: width,
     flexDirection: 'row',
     flexWrap: 'nowrap',
@@ -105,12 +105,13 @@ const styles = StyleSheet.create({
   },
   icon: {
     textAlign: 'center',
-    fontSize: 26,
-    padding: 8,
+    fontSize: 24,
+    padding: 6,
+    paddingBottom: 4,
     color: '#777',
   },
   title: {
-    fontSize: 12,
+    fontSize: 10,
     color: '#777',
     textAlign: 'center',
   },

@@ -4,6 +4,7 @@ import { StyleSheet, View, Navigator } from 'react-native';
 import routesConfig from './route-config';
 
 import NavigationBarBottom from './components/NavigationBarBottom'
+import Page from './pages/Page'
 
 export default class app extends Component {
   constructor (props) {
@@ -16,6 +17,7 @@ export default class app extends Component {
       component: routesConfig.defaultComponent.component
     }
   }
+  // 监听底部导航切换
   onNavSelected = (nav) => {
     this.setState({component: routesConfig.routes[nav.name].component})
     this.setState({selectedNav: nav})
@@ -23,10 +25,14 @@ export default class app extends Component {
   render () {
     return (
       <View style={styles.page}>
+        <Page
+          initComponent={this.state.component}
+          initTitle={this.state.selectedNav.title}
+        />
         {/* 页面容器 */}
-        <View style={styles.content}>
+        {/* <View style={styles.content}>
           <this.state.component />
-        </View>
+        </View> */}
         {/* 底部导航 */}
         <NavigationBarBottom
           selectedNav={this.selectedNav}

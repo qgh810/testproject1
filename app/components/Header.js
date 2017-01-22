@@ -9,7 +9,8 @@ import {
   View,
   Text,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
+  StatusBar,
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -85,6 +86,7 @@ export default class header extends Component {
             }
           })()
         }
+        <StatusBar barStyle="light-content" />
       </View>
     );
   }
