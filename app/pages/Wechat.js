@@ -7,10 +7,15 @@ import {
     Image,
     StyleSheet,
     ScrollView,
+    Dimensions,
+    TouchableWithoutFeedback,
 } from 'react-native';
+
+import Icon from 'react-native-vector-icons/Entypo';
 
 import Header from '../components/Header'
 import Triangle from '../components/Triangle'
+var {height, width} = Dimensions.get('window')
 
 export default class Wechat extends Component {
     constructor(props) {
@@ -18,125 +23,150 @@ export default class Wechat extends Component {
       this.state = {
         title: '微信',
         rightBtnName: 'plus',
+        showFloatNav: false,
         messages: [
           {
             image: 'https://user-gold-cdn.xitu.io/2016/11/29/ebfdcade79bfb709f9a295fc70a39e42',
             name: '名字',
             content: '聊天内容聊天内容聊天内容聊天内容聊天内容聊天内容聊天内容聊天内容',
-            time: '下午6:15'
+            time: '下午6:15',
+            unreadCount: 4
           },
           {
             image: 'https://dn-mhke0kuv.qbox.me/6fe34414c019596859e1.jpg?imageView2/1/w/164/h/164/q/85/format/jpg/interlace/1',
             name: '名字2',
             content: '聊天内容聊天内容',
-            time: '下午6:15'
+            time: '下午6:15',
+            unreadCount: 0
           },
           {
             image: 'https://dn-mhke0kuv.qbox.me/6fe34414c019596859e1.jpg?imageView2/1/w/164/h/164/q/85/format/jpg/interlace/1',
             name: '名字3',
             content: '聊天内容聊天内容',
-            time: '下午6:15'
+            time: '下午6:15',
+            unreadCount: 1
           },
           {
             image: 'https://dn-mhke0kuv.qbox.me/6fe34414c019596859e1.jpg?imageView2/1/w/164/h/164/q/85/format/jpg/interlace/1',
             name: '名字3',
             content: '聊天内容聊天内容',
-            time: '下午6:15'
+            time: '下午6:15',
+            unreadCount: 0
           },
           {
             image: 'https://dn-mhke0kuv.qbox.me/6fe34414c019596859e1.jpg?imageView2/1/w/164/h/164/q/85/format/jpg/interlace/1',
             name: '名字3',
             content: '聊天内容聊天内容',
-            time: '下午6:15'
+            time: '下午6:15',
+            unreadCount: 0
           },
           {
             image: 'https://dn-mhke0kuv.qbox.me/6fe34414c019596859e1.jpg?imageView2/1/w/164/h/164/q/85/format/jpg/interlace/1',
             name: '名字3',
             content: '聊天内容聊天内容',
-            time: '下午6:15'
+            time: '下午6:15',
+            unreadCount: 0
           },
           {
             image: 'https://dn-mhke0kuv.qbox.me/6fe34414c019596859e1.jpg?imageView2/1/w/164/h/164/q/85/format/jpg/interlace/1',
             name: '名字3',
             content: '聊天内容聊天内容',
-            time: '下午6:15'
+            time: '下午6:15',
+            unreadCount: 0
           },
           {
             image: 'https://dn-mhke0kuv.qbox.me/6fe34414c019596859e1.jpg?imageView2/1/w/164/h/164/q/85/format/jpg/interlace/1',
             name: '名字3',
             content: '聊天内容聊天内容',
-            time: '下午6:15'
+            time: '下午6:15',
+            unreadCount: 0
           },
           {
             image: 'https://dn-mhke0kuv.qbox.me/6fe34414c019596859e1.jpg?imageView2/1/w/164/h/164/q/85/format/jpg/interlace/1',
             name: '名字3',
             content: '聊天内容聊天内容',
-            time: '下午6:15'
+            time: '下午6:15',
+            unreadCount: 0
           },
           {
             image: 'https://dn-mhke0kuv.qbox.me/6fe34414c019596859e1.jpg?imageView2/1/w/164/h/164/q/85/format/jpg/interlace/1',
             name: '名字3',
             content: '聊天内容聊天内容',
-            time: '下午6:15'
+            time: '下午6:15',
+            unreadCount: 0
           },
           {
             image: 'https://dn-mhke0kuv.qbox.me/6fe34414c019596859e1.jpg?imageView2/1/w/164/h/164/q/85/format/jpg/interlace/1',
             name: '名字3',
             content: '聊天内容聊天内容',
-            time: '下午6:15'
+            time: '下午6:15',
+            unreadCount: 0
           },
           {
             image: 'https://dn-mhke0kuv.qbox.me/6fe34414c019596859e1.jpg?imageView2/1/w/164/h/164/q/85/format/jpg/interlace/1',
             name: '名字3',
             content: '聊天内容聊天内容',
-            time: '下午6:15'
+            time: '下午6:15',
+            unreadCount: 0
           },
           {
             image: 'https://dn-mhke0kuv.qbox.me/6fe34414c019596859e1.jpg?imageView2/1/w/164/h/164/q/85/format/jpg/interlace/1',
             name: '名字3',
             content: '聊天内容聊天内容',
-            time: '下午6:15'
+            time: '下午6:15',
+            unreadCount: 0
           },
           {
             image: 'https://dn-mhke0kuv.qbox.me/6fe34414c019596859e1.jpg?imageView2/1/w/164/h/164/q/85/format/jpg/interlace/1',
             name: '名字3',
             content: '聊天内容聊天内容',
-            time: '下午6:15'
+            time: '下午6:15',
+            unreadCount: 0
           },
           {
             image: 'https://dn-mhke0kuv.qbox.me/6fe34414c019596859e1.jpg?imageView2/1/w/164/h/164/q/85/format/jpg/interlace/1',
             name: '名字3',
             content: '聊天内容聊天内容',
-            time: '下午6:15'
+            time: '下午6:15',
+            unreadCount: 0
           },
           {
             image: 'https://dn-mhke0kuv.qbox.me/6fe34414c019596859e1.jpg?imageView2/1/w/164/h/164/q/85/format/jpg/interlace/1',
             name: '名字3',
             content: '聊天内容聊天内容',
-            time: '下午6:15'
+            time: '下午6:15',
+            unreadCount: 0
           },
           {
             image: 'https://dn-mhke0kuv.qbox.me/6fe34414c019596859e1.jpg?imageView2/1/w/164/h/164/q/85/format/jpg/interlace/1',
             name: '名字3',
             content: '聊天内容聊天内容',
-            time: '下午6:15'
+            time: '下午6:15',
+            unreadCount: 0
           },
           {
             image: 'https://dn-mhke0kuv.qbox.me/6fe34414c019596859e1.jpg?imageView2/1/w/164/h/164/q/85/format/jpg/interlace/1',
             name: '名字3',
             content: '聊天内容聊天内容',
-            time: '下午6:15'
+            time: '下午6:15',
+            unreadCount: 0
           },
         ]
       };
     }
     onRightButton = () => {
-      console.log('里面')
+      this.setState({
+        showFloatNav: !this.state.showFloatNav
+      })
     }
     render() {
         return (
           <View style={styles.container}>
-            <FloatNavBar />
+            {
+              this.state.showFloatNav ? <FloatNavBar
+                onClose={this.onRightButton}
+               /> : null
+            }
             <ScrollView
               keyboardDismissMode="on-drag"
               >
@@ -158,9 +188,20 @@ class List extends Component {
   }
   render () {
     return (
-      <TouchableOpacity style={styles.list}>
+      <TouchableOpacity
+        activeOpacity={0.7}
+        style={styles.list} >
         <View style={styles.listContainer}>
-          <Image style={styles.listImage} source={{uri: this.props.image}} />
+          <Image style={styles.listImage} source={{uri: this.props.image}} >
+          </Image>
+          {
+            this.props.unreadCount ?
+            <View style={styles.unreadCount}>
+              <Text style={styles.unreadCountText}>{this.props.unreadCount}</Text>
+            </View>
+            : null
+          }
+
           <View style={styles.listContent}>
             <Text style={styles.listContentTitle}>{this.props.name}</Text>
             <Text
@@ -179,12 +220,66 @@ class List extends Component {
 class FloatNavBar extends Component {
   constructor (props) {
     super(props)
+    this.state = {
+      navs: [
+        {
+          title: '发起群聊',
+          icon: 'message',
+        },
+        {
+          title: '添加朋友',
+          icon: 'add-user',
+        },
+        {
+          title: '扫一扫',
+          icon: 'hair-cross',
+        },
+        {
+          title: '收付款',
+          icon: 'credit',
+        },
+      ]
+    }
+  }
+  onOther = () => {
+    this.props.onClose && this.props.onClose()
   }
   render () {
     return (
-      <View style={styles.floatNavBarContainer}>
-        <Triangle/>
-      </View>
+      <TouchableOpacity
+        activeOpacity={1}
+        style={styles.floatNavBarLayer}
+        onPress={this.onOther}>
+        <View style={styles.floatNavBarContainer}>
+          <Triangle
+            style={styles.floatNavBarTriangle}
+            size={12}
+            color="#333238"
+            direction="top"/>
+          <View style={styles.floatNavBarContent}>
+            {
+              (() => {
+                return this.state.navs.map((nav, index) => {
+                  return (
+                    <TouchableOpacity
+                      activeOpacity={0.7}
+                      style={[styles.floatNavBarTextBox, commonStyles.bordered]}
+                      key={index}>
+                      <Icon
+                        name={nav.icon}
+                        style={styles.floatBavBarIcon}/>
+                      <Text
+                        style={styles.floatNavBarText}>
+                        {nav.title}
+                      </Text>
+                    </TouchableOpacity>
+                  )
+                })
+              })()
+            }
+          </View>
+        </View>
+      </TouchableOpacity>
     )
   }
 }
@@ -209,8 +304,24 @@ const styles = StyleSheet.create({
   listImage: {
     width: 45,
     height: 45,
-    backgroundColor: 'red',
     borderRadius: 5,
+  },
+  unreadCount: {
+    position: 'absolute',
+    left: 37,
+    top: 3,
+    width: 14,
+    height: 14,
+    backgroundColor: 'red',
+    borderRadius: 10,
+    overflow: 'hidden',
+  },
+  unreadCountText: {
+    color: '#fff',
+    fontSize: 10,
+    lineHeight: 14,
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
   listContent: {
     flex: 1,
@@ -236,24 +347,54 @@ const styles = StyleSheet.create({
     color: '#bbb'
   },
 
+  floatNavBarLayer: {
+    position: 'absolute',
+    width: width,
+    height: 2000,
+    zIndex: 2,
+  },
   floatNavBarContainer: {
     position: 'absolute',
     top: 10,
     right: 5,
-    width: 120,
-    height: 100,
-    backgroundColor: 'red',
-    zIndex: 2,
+    backgroundColor: '#333238',
   },
 
-
-  triangle: {
+  floatNavBarTriangle: {
     position: 'absolute',
-    top: -5,
-    right: 5,
-    width: 10,
-    height: 10,
-    backgroundColor: 'red',
-    transform: [{rotate: '45deg'}]
+    top: -6,
+    right: 8,
+  },
+
+  floatNavBarContent: {
+    paddingLeft: 10,
+    paddingRight: 12,
+    paddingTop: 3,
+    paddingBottom: 5,
+  },
+
+  floatBavBarIcon: {
+    fontSize: 16,
+    color: '#fff',
+    paddingTop: 8,
+    paddingRight: 7,
+  },
+
+  floatNavBarTextBox: {
+    height: 30,
+    flexDirection: 'row',
+  },
+
+  floatNavBarText: {
+    lineHeight: 30,
+    color: '#fff',
+  },
+
+})
+
+const commonStyles = StyleSheet.create({
+  bordered: {
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255,255,255,0.3)'
   }
 })

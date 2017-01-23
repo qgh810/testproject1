@@ -31,7 +31,7 @@ export default class NavigationBar extends Component {
 
   // 监听右侧按钮
   onRightButton = () => {
-    this.refOnRightButton && this.refOnRightButton()
+    this.onRightButtonCallBack && this.onRightButtonCallBack()
   }
 
   // 组件内部定义的事件
