@@ -9,6 +9,9 @@ import {
     ScrollView,
     Dimensions,
     TouchableWithoutFeedback,
+    TouchableHighlight,
+    Animated,
+    Easing,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Entypo';
@@ -186,11 +189,15 @@ class List extends Component {
   constructor (props) {
     super(props)
   }
+  onPress = () => {
+    console.log('此时应该跳转页面进入聊天详情页面')
+  }
   render () {
     return (
-      <TouchableOpacity
-        activeOpacity={0.7}
-        style={styles.list} >
+      <TouchableHighlight
+        underlayColor="#f2f2f2"
+        style={styles.list}
+        onPress={this.onPress}>
         <View style={styles.listContainer}>
           <Image style={styles.listImage} source={{uri: this.props.image}} >
           </Image>
@@ -212,7 +219,7 @@ class List extends Component {
             <Text style={styles.listContentTime}>{this.props.time}</Text>
           </View>
         </View>
-      </TouchableOpacity>
+      </TouchableHighlight>
     )
   }
 }
@@ -221,6 +228,7 @@ class FloatNavBar extends Component {
   constructor (props) {
     super(props)
     this.state = {
+      fadeInOpacity: new Animated.Value(0),
       navs: [
         {
           title: '发起群聊',
@@ -250,7 +258,9 @@ class FloatNavBar extends Component {
         activeOpacity={1}
         style={styles.floatNavBarLayer}
         onPress={this.onOther}>
-        <View style={styles.floatNavBarContainer}>
+        <Animated.View style={[styles.floatNavBarContainer, {
+          opacity: this.state.fadeInOpacity
+        }]}>
           <Triangle
             style={styles.floatNavBarTriangle}
             size={12}
@@ -263,11 +273,17 @@ class FloatNavBar extends Component {
                   return (
                     <TouchableOpacity
                       activeOpacity={0.7}
-                      style={[styles.floatNavBarTextBox, commonStyles.bordered]}
+                      style={
+                        index === this.state.navs.length - 1
+                        ?
+                        styles.floatNavBarTextBox
+                        :
+                        [styles.floatNavBarTextBox, commonStyles.bordered]
+                      }
                       key={index}>
                       <Icon
                         name={nav.icon}
-                        style={styles.floatBavBarIcon}/>
+                        style={styles.floatNavBarIcon}/>
                       <Text
                         style={styles.floatNavBarText}>
                         {nav.title}
@@ -278,9 +294,17 @@ class FloatNavBar extends Component {
               })()
             }
           </View>
-        </View>
+        </Animated.View>
       </TouchableOpacity>
     )
+  }
+
+  componentDidMount() {
+    Animated.timing(this.state.fadeInOpacity, {
+      toValue: 1, // 目标值
+      duration: 200, // 动画时间
+      easing: Easing.ease // 缓动函数
+    }).start()
   }
 }
 
@@ -370,10 +394,10 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 12,
     paddingTop: 3,
-    paddingBottom: 5,
+    paddingBottom: 3,
   },
 
-  floatBavBarIcon: {
+  floatNavBarIcon: {
     fontSize: 16,
     color: '#fff',
     paddingTop: 8,
