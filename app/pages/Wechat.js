@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import Header from '../components/Header'
+import Triangle from '../components/Triangle'
 
 export default class Wechat extends Component {
     constructor(props) {
@@ -135,6 +136,7 @@ export default class Wechat extends Component {
     render() {
         return (
           <View style={styles.container}>
+            <FloatNavBar />
             <ScrollView
               keyboardDismissMode="on-drag"
               >
@@ -170,6 +172,19 @@ class List extends Component {
           </View>
         </View>
       </TouchableOpacity>
+    )
+  }
+}
+
+class FloatNavBar extends Component {
+  constructor (props) {
+    super(props)
+  }
+  render () {
+    return (
+      <View style={styles.floatNavBarContainer}>
+        <Triangle/>
+      </View>
     )
   }
 }
@@ -219,5 +234,26 @@ const styles = StyleSheet.create({
     top: 5,
     fontSize: 12,
     color: '#bbb'
+  },
+
+  floatNavBarContainer: {
+    position: 'absolute',
+    top: 10,
+    right: 5,
+    width: 120,
+    height: 100,
+    backgroundColor: 'red',
+    zIndex: 2,
+  },
+
+
+  triangle: {
+    position: 'absolute',
+    top: -5,
+    right: 5,
+    width: 10,
+    height: 10,
+    backgroundColor: 'red',
+    transform: [{rotate: '45deg'}]
   }
 })
