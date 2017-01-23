@@ -19,10 +19,6 @@ export default class Me extends Component {
     render() {
         return (
             <View style={{backgroundColor: 'red'}}>
-              <Header
-                showBackBtn={false}
-                title={'我'}
-                showRightBtn={false} />
                 <Text>我</Text>
                 <Text>我</Text>
                 <Text>我</Text>

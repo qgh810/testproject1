@@ -16,10 +16,6 @@ export default class Discover extends Component {
     render() {
         return (
             <View>
-              <Header
-                showBackBtn={false}
-                title={'发现'}
-                showRightBtn={false} />
                 <Text>朋友圈</Text>
                 <Text>朋友圈</Text>
                 <Text>朋友圈</Text>

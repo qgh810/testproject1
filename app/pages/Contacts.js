@@ -16,10 +16,6 @@ export default class Constacts extends Component {
     render() {
       return (
         <View style={{backgroundColor: 'yellow'}}>
-          <Header
-            showBackBtn={false}
-            title={'联系人'}
-            showRightBtn={false} />
             <Text>联系人</Text>
             <Text>联系人</Text>
             <Text>联系人</Text>
