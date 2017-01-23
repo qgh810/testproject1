@@ -13,7 +13,9 @@ export default class Triangle extends Component {
   static defaultProps = {
     size: 10,
     color: '#000',
-    direction: 'bottom'
+    borderColor: '#000',
+    direction: 'bottom',
+    style: {},
   }
   styles = () => {
     let size = this.props.size
@@ -44,13 +46,15 @@ export default class Triangle extends Component {
       height: triangleWidth,
       transform: [{translate: [translateX, translateY]},{rotate: '45deg'}],
       backgroundColor: color,
+      borderWidth: 1,
+      borderColor: this.props.borderColor,
     }
 
     return StyleSheet.create({ triangleContainer, triangle })
   }
   render () {
     return (
-      <View style={this.styles().triangleContainer}>
+      <View style={[this.styles().triangleContainer, this.props.style]}>
         <View style={this.styles().triangle}></View>
       </View>
     )
